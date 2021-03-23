@@ -12,6 +12,7 @@
             prependTo: 'body',
             appendTo: '',
             parentTag: 'a',
+			wrapperTag: 'div',
             closeOnClick: false,
             allowParentLinks: false,
             nestedParentLinks: true,
@@ -112,13 +113,13 @@
 
         // create menu bar
         $this.mobileNav.attr('class', prefix + '_nav');
-        menuBar = $('<div class="' + prefix + '_menu"></div>');
+        menuBar = $('<'+ settings.wrapperTag +' />').addClass(prefix +'_menu');
 		if (settings.brand !== '') {
 			var brand = $('<div class="' + prefix + '_brand">'+settings.brand+'</div>');
 			$(menuBar).append(brand);
 		}
         $this.btn = $(
-            ['<' + settings.parentTag + ' aria-label="' + settings.label + '" aria-haspopup="true" role="button" tabindex="0" class="' + prefix + '_btn ' + prefix + '_collapsed">',
+            ['<' + settings.parentTag + ' aria-haspopup="true" role="button" tabindex="0" class="' + prefix + '_btn ' + prefix + '_collapsed">',
                 '<span class="' + prefix + '_menutxt">' + settings.label + '</span>',
                 '<span class="' + iconClass + '">',
                     '<span class="' + prefix + '_icon-bar"></span>',
